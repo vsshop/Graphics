@@ -55,8 +55,10 @@ window.chartStart = function (canvas) {
                 }
             },
             animation: {
-                easing: 'easeOutQuad', 
                 y: {
+                    duration: 0
+                },
+                x: {
                     duration: 0
                 }
             },
@@ -73,14 +75,14 @@ window.chartStart = function (canvas) {
         data.labels.unshift(newLabel);
         data.datasets[0].data.unshift(newValue);
         
-        if (data.labels.length > 100) {
+        if (data.labels.length > 400) {
             data.labels.pop();
             data.datasets[0].data.pop();
         }
         
-        chart.options.scales.x.min = newLabel - 99;
+        chart.options.scales.x.min = newLabel - 399;
         chart.options.scales.x.max = newLabel;
 
         chart.update();
-    }, 100);
+    }, 10);
 }
